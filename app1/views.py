@@ -88,8 +88,10 @@ def save_personal_detail(request):
         city = request.POST.get('city')
         about = request.POST.get('about')
         userid = request.POST.get('userid')
+        gender = request.POST.get('gender')
+
         from app1.models import profile
-        obj=profile(user=User.objects.get(pk=request.user.id),mobile=mobile,marrital_status=mstatus,dob=dob,height=height,color=color,Qualification=qualification,work=work,experience=experience,hobbies=Hobbies,income=Income,medical_condition=medical_condition,city=city,about_me=about)
+        obj=profile(user=User.objects.get(pk=request.user.id),mobile=mobile,marrital_status=mstatus,dob=dob,height=height,color=color,Qualification=qualification,work=work,experience=experience,hobbies=Hobbies,income=Income,medical_condition=medical_condition,city=city,about_me=about,gender=gender)
         obj.save()
 
 
@@ -102,7 +104,7 @@ def family_details(request):
     if request.method == "POST":
         father_name = request.POST.get('father_name')
         father_education = request.POST.get('father_education')
-        Father_Occupation = request.POST.get('Father_Occupation')
+        father_occupation = request.POST.get('father_occupation')
         mother_name = request.POST.get('mother_name')
         mother_education = request.POST.get('mother_education')
         mother_occupation = request.POST.get('mobile')
@@ -112,7 +114,7 @@ def family_details(request):
         relatives = request.POST.get('relatives')
 
         from app1.models import family_details
-        obj=family_details(user=User.objects.get(pk=request.user.id),father_name=father_name,father_education=father_education,father_occupation=Father_Occupation,mother_name=mother_name,mother_education=mother_education,mother_occupation=mother_occupation,brother=brother,sister=sister,relatives=relatives,native_place=native_place)
+        obj=family_details(user=User.objects.get(pk=request.user.id),father_name=father_name,father_education=father_education,father_occupation=father_occupation,mother_name=mother_name,mother_education=mother_education,mother_occupation=mother_occupation,brother=brother,sister=sister,relatives=relatives,native_place=native_place)
         obj.save()
 
         return redirect('/cdp')

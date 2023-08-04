@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 class profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
+    gender = models.CharField(max_length=50,default="", null=True, blank=True)
     mobile = models.CharField(max_length=50,default="", null=True, blank=True)
     marrital_status = models.CharField(max_length=50,default="", null=True, blank=True)
     dob = models.CharField(max_length=50,default="", null=True, blank=True)
@@ -25,6 +26,7 @@ class profile(models.Model):
 class family_details(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     father_name = models.CharField(max_length=50,default="", null=True, blank=True)
+    
     father_education = models.CharField(max_length=50,default="", null=True, blank=True)
     father_occupation = models.CharField(max_length=50,default="", null=True, blank=True)
     mother_name = models.CharField(max_length=50,default="", null=True, blank=True)
