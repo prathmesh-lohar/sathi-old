@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 class profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     gender = models.CharField(max_length=50,default="", null=True, blank=True)
+    age = models.CharField(max_length=50,default="0", null=True, blank=True)
     mobile = models.CharField(max_length=50,default="", null=True, blank=True)
     marrital_status = models.CharField(max_length=50,default="", null=True, blank=True)
     dob = models.CharField(max_length=50,default="", null=True, blank=True)
@@ -19,6 +20,10 @@ class profile(models.Model):
     medical_condition = models.CharField(max_length=50,default="", null=True, blank=True)
     city = models.CharField(max_length=50,default="", null=True, blank=True)
     about_me = models.TextField(null=True,blank=True)
+
+    is_featured = models.BooleanField(default=False)
+    is_verified = models.BooleanField(default=False)
+
 
     def __str__(self):
         return str(self.user)

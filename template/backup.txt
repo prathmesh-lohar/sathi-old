@@ -134,3 +134,342 @@
 				</div>
 				<!-- //Modal -->
 	</div>
+
+
+
+
+	
+		<!-- featured profiles -->			
+			<div class="w3layouts_featured-profiles">
+				<div class="container">
+				<!-- slider -->
+				<div class="agile_featured-profiles">
+					<h2>Featured Profiles</h2>
+							<ul id="flexiselDemo3">
+								<li>
+									<div class="col-md-3 biseller-column">
+										<a href="groom_profile.html">
+											<div class="profile-image">
+												<img src="{% static 'images/p1.jpg' %}" class="img-responsive" alt="profile image">
+												<div class="agile-overlay">
+												<h4>Profile ID: 458645</h4>
+													<ul>
+														<li><span>Age / Height</span>: 26 / 5'0''</li>
+														<li><span>Caste</span>: Ipsum</li>
+														<li><span>Religion</span>: Lorem</li>
+														<li><span>Profession</span>: IT Software</li>
+														<li><span>Profile Created By</span>: Self</li>
+														<li><span>Location</span>: Semrd, 7th c, Los</li>
+													</ul>
+												</div>
+											</div>
+										</a>
+									</div>
+									<div class="col-md-3 biseller-column">
+										<a href="groom_profile.html">
+											<div class="profile-image">
+												<img src="{% static 'images/p2.jpg' %}" class="img-responsive" alt="profile image">
+												<div class="agile-overlay">
+												<h4>Profile ID: 458645</h4>
+													<ul>
+														<li><span>Age / Height</span>: 26 / 5'0''</li>
+														<li><span>Caste</span>: Ipsum</li>
+														<li><span>Religion</span>: Lorem</li>
+														<li><span>Profession</span>: IT Software</li>
+														<li><span>Profile Created By</span>: Self</li>
+														<li><span>Location</span>: Semrd, 7th c, Los</li>
+													</ul>
+												</div>
+											</div>
+										</a>
+									</div>
+									<div class="col-md-3 biseller-column">
+										<a href="bride_profile.html">
+											<div class="profile-image">
+												<img src="{% static 'images/p3.jpg' %}" class="img-responsive" alt="profile image">
+												<div class="agile-overlay">
+												<h4>Profile ID: 458645</h4>
+													<ul>
+														<li><span>Age / Height</span>: 26 / 5'0''</li>
+														<li><span>Caste</span>: Ipsum</li>
+														<li><span>Religion</span>: Lorem</li>
+														<li><span>Profession</span>: IT Software</li>
+														<li><span>Profile Created By</span>: Self</li>
+														<li><span>Location</span>: Semrd, 7th c, Los</li>
+													</ul>
+												</div>
+											</div>
+										</a>
+									</div>
+									<div class="col-md-3 biseller-column">
+										<a href="groom_profile.html">
+											<div class="profile-image">
+												<img src="{% static 'images/p4.jpg'%}" class="img-responsive" alt="profile image">
+												<div class="agile-overlay">
+												<h4>Profile ID: 458645</h4>
+													<ul>
+														<li><span>Age / Height</span>: 26 / 5'0''</li>
+														<li><span>Caste</span>: Ipsum</li>
+														<li><span>Religion</span>: Lorem</li>
+														<li><span>Profession</span>: IT Software</li>
+														<li><span>Profile Created By</span>: Self</li>
+														<li><span>Location</span>: Semrd, 7th c, Los</li>
+													</ul>
+												</div>
+											</div>
+										</a>
+									</div>
+									<div class="col-md-3 biseller-column">
+										<a href="bride_profile.html">
+											<div class="profile-image">
+												<img src="images/p5.jpg" class="img-responsive" alt="profile image">
+												<div class="agile-overlay">
+												<h4>Profile ID: 458645</h4>
+													<ul>
+														<li><span>Age / Height</span>: 26 / 5'0''</li>
+														<li><span>Caste</span>: Ipsum</li>
+														<li><span>Religion</span>: Lorem</li>
+														<li><span>Profession</span>: IT Software</li>
+														<li><span>Profile Created By</span>: Self</li>
+														<li><span>Location</span>: Semrd, 7th c, Los</li>
+													</ul>
+												</div>
+											</div>
+										</a>
+									</div>
+									<div class="col-md-3 biseller-column">
+										<a href="bride_profile.html">
+											<div class="profile-image">
+												<img src="images/p6.jpg" class="img-responsive" alt="profile image">
+												<div class="agile-overlay">
+												<h4>Profile ID: 458645</h4>
+													<ul>
+														<li><span>Age / Height</span>: 26 / 5'0''</li>
+														<li><span>Caste</span>: Ipsum</li>
+														<li><span>Religion</span>: Lorem</li>
+														<li><span>Profession</span>: IT Software</li>
+														<li><span>Profile Created By</span>: Self</li>
+														<li><span>Location</span>: Semrd, 7th c, Los</li>
+													</ul>
+												</div>
+											</div>
+										</a>
+									</div>
+									<div class="col-md-3 biseller-column">
+										<a href="groom_profile.html">
+											<div class="profile-image">
+												<img src="images/p7.jpg" class="img-responsive" alt="profile image">
+												<div class="agile-overlay">
+												<h4>Profile ID: 458645</h4>
+													<ul>
+														<li><span>Age / Height</span>: 26 / 5'0''</li>
+														<li><span>Caste</span>: Ipsum</li>
+														<li><span>Religion</span>: Lorem</li>
+														<li><span>Profession</span>: IT Software</li>
+														<li><span>Profile Created By</span>: Self</li>
+														<li><span>Location</span>: Semrd, 7th c, Los</li>
+													</ul>
+												</div>
+											</div>
+										</a>
+									</div>
+									<div class="col-md-3 biseller-column">
+										<a href="bride_profile.html">
+											<div class="profile-image">
+												<img src="images/p8.jpg" class="img-responsive" alt="profile image">
+												<div class="agile-overlay">
+												<h4>Profile ID: 458645</h4>
+													<ul>
+														<li><span>Age / Height</span>: 26 / 5'0''</li>
+														<li><span>Caste</span>: Ipsum</li>
+														<li><span>Religion</span>: Lorem</li>
+														<li><span>Profession</span>: IT Software</li>
+														<li><span>Profile Created By</span>: Self</li>
+														<li><span>Location</span>: Semrd, 7th c, Los</li>
+													</ul>
+												</div>
+											</div>
+										</a>
+									</div>
+								</li>
+								<li>
+									<div class="col-md-3 biseller-column">
+										<a href="groom_profile.html">
+											<div class="profile-image">
+												<img src="images/p9.jpg" class="img-responsive" alt="profile image">
+												<div class="agile-overlay">
+												<h4>Profile ID: 458645</h4>
+													<ul>
+														<li><span>Age / Height</span>: 26 / 5'0''</li>
+														<li><span>Caste</span>: Ipsum</li>
+														<li><span>Religion</span>: Lorem</li>
+														<li><span>Profession</span>: IT Software</li>
+														<li><span>Profile Created By</span>: Self</li>
+														<li><span>Location</span>: Semrd, 7th c, Los</li>
+													</ul>
+												</div>
+											</div>
+										</a>
+									</div>
+									<div class="col-md-3 biseller-column">
+										<a href="groom_profile.html">
+											<div class="profile-image">
+												<img src="images/p10.jpg" class="img-responsive" alt="profile image">
+												<div class="agile-overlay">
+												<h4>Profile ID: 458645</h4>
+													<ul>
+														<li><span>Age / Height</span>: 26 / 5'0''</li>
+														<li><span>Caste</span>: Ipsum</li>
+														<li><span>Religion</span>: Lorem</li>
+														<li><span>Profession</span>: IT Software</li>
+														<li><span>Profile Created By</span>: Self</li>
+														<li><span>Location</span>: Semrd, 7th c, Los</li>
+													</ul>
+												</div>
+											</div>
+										</a>
+									</div>
+									<div class="col-md-3 biseller-column">
+										<a href="groom_profile.html">
+											<div class="profile-image">
+												<img src="images/p11.jpg" class="img-responsive" alt="profile image">
+												<div class="agile-overlay">
+												<h4>Profile ID: 458645</h4>
+													<ul>
+														<li><span>Age / Height</span>: 26 / 5'0''</li>
+														<li><span>Caste</span>: Ipsum</li>
+														<li><span>Religion</span>: Lorem</li>
+														<li><span>Profession</span>: IT Software</li>
+														<li><span>Profile Created By</span>: Self</li>
+														<li><span>Location</span>: Semrd, 7th c, Los</li>
+													</ul>
+												</div>
+											</div>
+										</a>
+									</div>
+									<div class="col-md-3 biseller-column">
+										<a href="bride_profile.html">
+											<div class="profile-image">
+												<img src="images/p12.jpg" class="img-responsive" alt="profile image">
+												<div class="agile-overlay">
+												<h4>Profile ID: 458645</h4>
+													<ul>
+														<li><span>Age / Height</span>: 26 / 5'0''</li>
+														<li><span>Caste</span>: Ipsum</li>
+														<li><span>Religion</span>: Lorem</li>
+														<li><span>Profession</span>: IT Software</li>
+														<li><span>Profile Created By</span>: Self</li>
+														<li><span>Location</span>: Semrd, 7th c, Los</li>
+													</ul>
+												</div>
+											</div>
+										</a>
+									</div>
+									<div class="col-md-3 biseller-column">
+										<a href="groom_profile.html">
+											<div class="profile-image">
+												<img src="images/p7.jpg" class="img-responsive" alt="profile image">
+												<div class="agile-overlay">
+												<h4>Profile ID: 458645</h4>
+													<ul>
+														<li><span>Age / Height</span>: 26 / 5'0''</li>
+														<li><span>Caste</span>: Ipsum</li>
+														<li><span>Religion</span>: Lorem</li>
+														<li><span>Profession</span>: IT Software</li>
+														<li><span>Profile Created By</span>: Self</li>
+														<li><span>Location</span>: Semrd, 7th c, Los</li>
+													</ul>
+												</div>
+											</div>
+										</a>
+									</div>
+									<div class="col-md-3 biseller-column">
+										<a href="bride_profile.html">
+											<div class="profile-image">
+												<img src="images/p5.jpg" class="img-responsive" alt="profile image">
+												<div class="agile-overlay">
+												<h4>Profile ID: 458645</h4>
+													<ul>
+														<li><span>Age / Height</span>: 26 / 5'0''</li>
+														<li><span>Caste</span>: Ipsum</li>
+														<li><span>Religion</span>: Lorem</li>
+														<li><span>Profession</span>: IT Software</li>
+														<li><span>Profile Created By</span>: Self</li>
+														<li><span>Location</span>: Semrd, 7th c, Los</li>
+													</ul>
+												</div>
+											</div>
+										</a>
+									</div>
+									<div class="col-md-3 biseller-column">
+										<a href="groom_profile.html">
+											<div class="profile-image">
+												<img src="images/p1.jpg" class="img-responsive" alt="profile image">
+												<div class="agile-overlay">
+												<h4>Profile ID: 458645</h4>
+													<ul>
+														<li><span>Age / Height</span>: 26 / 5'0''</li>
+														<li><span>Caste</span>: Ipsum</li>
+														<li><span>Religion</span>: Lorem</li>
+														<li><span>Profession</span>: IT Software</li>
+														<li><span>Profile Created By</span>: Self</li>
+														<li><span>Location</span>: Semrd, 7th c, Los</li>
+													</ul>
+												</div>
+											</div>
+										</a>
+									</div>
+									<div class="col-md-3 biseller-column">
+										<a href="groom_profile.html">
+											<div class="profile-image">
+												<img src="images/p2.jpg" class="img-responsive" alt="profile image">
+												<div class="agile-overlay">
+												<h4>Profile ID: 458645</h4>
+													<ul>
+														<li><span>Age / Height</span>: 26 / 5'0''</li>
+														<li><span>Caste</span>: Ipsum</li>
+														<li><span>Religion</span>: Lorem</li>
+														<li><span>Profession</span>: IT Software</li>
+														<li><span>Profile Created By</span>: Self</li>
+														<li><span>Location</span>: Semrd, 7th c, Los</li>
+													</ul>
+												</div>
+											</div>
+										</a>
+									</div>
+								</li>
+							</ul>
+					</div>   
+			</div>
+			<!-- //slider -->				
+			</div>
+			<script type="text/javascript" src="{% static 'js/jquery.flexisel.js' %}"></script><!-- flexisel-js -->	
+					<script type="text/javascript">
+						 $(window).load(function() {
+							$("#flexiselDemo3").flexisel({
+								visibleItems:1,
+								animationSpeed: 1000,
+								autoPlay: false,
+								autoPlaySpeed: 5000,    		
+								pauseOnHover: true,
+								enableResponsiveBreakpoints: true,
+								responsiveBreakpoints: { 
+									portrait: { 
+										changePoint:480,
+										visibleItems:1
+									}, 
+									landscape: { 
+										changePoint:640,
+										visibleItems:1
+									},
+									tablet: { 
+										changePoint:768,
+										visibleItems:1
+									}
+								}
+							});
+							
+						});
+					   </script>
+			<!-- //featured profiles -->		   
+		

@@ -1,12 +1,20 @@
 from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User,auth
 from django.contrib.auth.decorators import login_required
-from app1.models import profile
+from app1.models import profile,family_details,media
 # Create your views here.
 
 def home(request):
+    from app1.models import profile,family_details,media
+    featured1 = profile.objects.filter(is_featured=1)[:8]
+    featured2 = profile.objects.filter(is_featured=1)[8:]
 
-    return render(request, "index.html")
+    data={
+        'featured1':featured1,
+        'featured2':featured2,
+    }
+
+    return render(request, "index.html",data)
 
 def login(request):
     
@@ -89,9 +97,11 @@ def save_personal_detail(request):
         about = request.POST.get('about')
         userid = request.POST.get('userid')
         gender = request.POST.get('gender')
+        age = request.POST.get('age')
+
 
         from app1.models import profile
-        obj=profile(user=User.objects.get(pk=request.user.id),mobile=mobile,marrital_status=mstatus,dob=dob,height=height,color=color,Qualification=qualification,work=work,experience=experience,hobbies=Hobbies,income=Income,medical_condition=medical_condition,city=city,about_me=about,gender=gender)
+        obj=profile(user=User.objects.get(pk=request.user.id),mobile=mobile,marrital_status=mstatus,dob=dob,height=height,color=color,Qualification=qualification,work=work,experience=experience,hobbies=Hobbies,income=Income,medical_condition=medical_condition,city=city,about_me=about,gender=gender,age=age)
         obj.save()
 
 
@@ -107,9 +117,9 @@ def family_details(request):
         father_occupation = request.POST.get('father_occupation')
         mother_name = request.POST.get('mother_name')
         mother_education = request.POST.get('mother_education')
-        mother_occupation = request.POST.get('mobile')
+        mother_occupation = request.POST.get('mother_occupation')
         sister = request.POST.get('sister')
-        brother = request.POST.get('mobile')
+        brother = request.POST.get('brother')
         native_place = request.POST.get('native_place')
         relatives = request.POST.get('relatives')
 
@@ -131,3 +141,16 @@ def cdp(request):
         return redirect('/')
 
     return render(request, "cdp.html")
+
+
+def all_profiles(request):
+    from app1.models import profile,family_details,media
+    male_profiles = profile.objects.all()
+    # male_profiles = profile.objects.filter(gender="Male").order_by('-id')
+    female_profiles = profile.objects.filter(gender="Female").order_by('-id')
+
+    data ={
+        'male_profiles':male_profiles,
+        'female_profiles':female_profiles
+    }
+    return render(request,"all_profiles.html",data)

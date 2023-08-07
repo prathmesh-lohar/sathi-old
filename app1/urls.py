@@ -19,12 +19,7 @@ urlpatterns = [
     path("family_details", views.family_details , name="family_details"),
 
     path("cdp", views.cdp , name="cdp"),
-
-
-
-    
-
-
+    path("all_profiles", views.all_profiles , name="all_profiles"),
 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
