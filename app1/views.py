@@ -2,17 +2,37 @@ from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User,auth
 from django.contrib.auth.decorators import login_required
 from app1.models import profile,family_details,media
+
+import random
+import string
+
 # Create your views here.
+
+
 
 def home(request):
     from app1.models import profile,family_details,media
     featured1 = profile.objects.filter(is_featured=1)[:8]
     featured2 = profile.objects.filter(is_featured=1)[8:]
 
+    
+    if request.user.is_authenticated:
+       
+        if request.user.profile.is_mail_verified==False:
+            return redirect('/vmail')
+        else:
+           
+                data={
+                        'featured1':featured1,
+                        'featured2':featured2,
+                    }
+
+                return render(request, "index.html",data)
+        
     data={
-        'featured1':featured1,
-        'featured2':featured2,
-    }
+          'featured1':featured1,
+          'featured2':featured2,
+        }
 
     return render(request, "index.html",data)
 
@@ -21,9 +41,10 @@ def login(request):
     if request.method == 'POST':
         uname = request.POST.get('uname')
         pwd = request.POST.get('pwd')
+
         
         user = auth.authenticate(username=uname, password=pwd)
-        
+            
         if user is not None:
             auth.login(request, user)
             return redirect('/')
@@ -63,11 +84,15 @@ def register(request):
         fname = request.POST.get('fname')
         lname = request.POST.get('lname')
     
+    
         # u = User(password=pwd, username=uname, email=email,first_name=fname, last_name=lname)    
         User.objects.create_user(password=pwd, username=uname, email=email,first_name=fname, last_name=lname)
-        
- 
-        return redirect('/login')
+        user = auth.authenticate(username=uname, password=pwd)
+        auth.login(request, user)
+        from app1.models import profile
+        obj = profile(user=request.user,is_mail_verified=False)
+        obj.save()
+        return redirect('/new_profile')
     else:
         HttpResponse("faield")
     
@@ -77,6 +102,12 @@ def profile(request):
     return render(request, "profile.html")
 
 def new_profile(request):
+    if request.user.is_authenticated:
+       
+        if request.user.profile.is_mail_verified==False:
+            return redirect('/fvmail')
+        else:
+            return render(request, "new_profile.html")
     return render(request, "new_profile.html")
 
 
@@ -101,8 +132,9 @@ def save_personal_detail(request):
 
 
         from app1.models import profile
-        obj=profile(user=User.objects.get(pk=request.user.id),mobile=mobile,marrital_status=mstatus,dob=dob,height=height,color=color,Qualification=qualification,work=work,experience=experience,hobbies=Hobbies,income=Income,medical_condition=medical_condition,city=city,about_me=about,gender=gender,age=age)
-        obj.save()
+        obj=profile.objects.filter(user=request.user).update(mobile=mobile,marrital_status=mstatus,dob=dob,height=height,color=color,Qualification=qualification,work=work,experience=experience,hobbies=Hobbies,income=Income,medical_condition=medical_condition,city=city,about_me=about,gender=gender,age=age)
+        # obj=profile(user=User.objects.get(pk=request.user.id),mobile=mobile,marrital_status=mstatus,dob=dob,height=height,color=color,Qualification=qualification,work=work,experience=experience,hobbies=Hobbies,income=Income,medical_condition=medical_condition,city=city,about_me=about,gender=gender,age=age)
+        # obj.save()
 
 
     return redirect('/family_details')
@@ -145,12 +177,107 @@ def cdp(request):
 
 def all_profiles(request):
     from app1.models import profile,family_details,media
-    male_profiles = profile.objects.all()
-    # male_profiles = profile.objects.filter(gender="Male").order_by('-id')
+    all_profiles = profile.objects.all().order_by('-id')[1:]
+    male_profiles = profile.objects.filter(gender="Male").order_by('-id')
     female_profiles = profile.objects.filter(gender="Female").order_by('-id')
 
     data ={
         'male_profiles':male_profiles,
-        'female_profiles':female_profiles
+        'female_profiles':female_profiles,
+        'all_profiles':all_profiles
     }
     return render(request,"all_profiles.html",data)
+
+def show_profile(request,id):
+    from app1.models import profile,family_details,media
+    sprofile = profile.objects.all()[:10]
+
+    profile = profile.objects.filter(user=id)[0]
+    
+    data = {
+        'profile':profile,
+        'sprofile':sprofile
+    }
+    return render(request,"view_profile.html",data)
+
+
+def gencode():
+    N = 5
+    res = ''.join(random.choices(string.ascii_uppercase +  string.digits, k = N)) 
+    strres = str(res)
+    return strres
+
+def sendmail(rec,code):
+    from email.message import EmailMessage
+    import ssl
+    import smtplib
+
+    sender = 'loharprathmesh2023@gmail.com'
+    rec = rec
+    pwd = 'itemvftaejglfial'
+
+    code = code
+
+    subject = "Verification For Sathi"
+
+    
+
+
+    body = "Verification Code : " + code
+
+    em = EmailMessage()
+    em['From'] = sender
+    em['To'] = rec
+    em['subject'] = subject
+    em.set_content(body)
+
+    contex = ssl.create_default_context()
+    with smtplib.SMTP_SSL('smtp.gmail.com',465,context=contex) as smtp:
+        smtp.login(sender,pwd)
+        smtp.sendmail(sender,rec,em.as_string())
+
+def vmail(request):
+
+    code = gencode()
+
+    if request.method == 'POST':
+        code = request.POST.get('code')
+        ccode = request.POST.get('ccode')
+
+        if code==ccode:
+            from app1.models import profile
+            profile.objects.filter(user=request.user.id).update(is_mail_verified=True)
+            
+            return redirect('/')
+        else:
+            return render(request, "vmail.html",{'code':code})
+        
+    
+    sendmail(request.user.email,code)
+    
+    return render(request, "vmail.html",{'code':code})
+
+
+
+def fvmail(request):
+
+    code = gencode()
+
+    if request.method == 'POST':
+        code = request.POST.get('code')
+        ccode = request.POST.get('ccode')
+
+        if code==ccode:
+            from app1.models import profile
+            profile.objects.filter(user=request.user.id).update(is_mail_verified=True)
+            
+            return redirect('/new_profile')
+        else:
+            return render(request, "fvmail.html",{'code':code})
+        
+    
+    sendmail(request.user.email,code)
+    
+    return render(request, "fvmail.html",{'code':code})
+
+

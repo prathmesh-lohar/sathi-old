@@ -5,6 +5,12 @@
 
 {% block main %}
 
+<style>
+	body{
+		background-color: #dddddd;
+	}
+</style>
+
 <!-- inner banner -->
 <div class="w3layouts-inner-banner">
 	<div class="container">
@@ -19,16 +25,16 @@
 
 
 
-<div class="container" style="margin-top: 25px;">
+<div class="container-fluid" style="margin-top: 25px;	">
 
 
 	<h3 align='center'>Total Matrimonial Profiles list</h3>
-	<div class="container">
+	<div class="container" style="">
 		<div class="row">
 			<div class="col-md-10">
-10
 
-<div class="container" style="margin-top: 25px; max-width: 95%;">
+
+<div class="container-fluid" style="margin-top: 25px; max-width: 95%;">
 	<ul id="myTabs" class="nav nav-pills nav-justified" role="tablist" data-tabs="tabs">
 		<li class="active"><a href="#all" data-toggle="tab">All</a></li>
 		<li><a href="#male" data-toggle="tab">Male</a></li>
@@ -37,47 +43,223 @@
 	<div class="tab-content">
 		<div role="tabpanel" class="tab-pane fade in active " id="all">
 			
+{% load static %}
 
-			<div class="match-profile">
+<grid style="margin-top: 5px;">
+	
+	{% for i in all_profiles  %}
+		
+	
+		
+	<div class="col">
+		<div class="maindiv">
+			<section class="idsection">
+				<p style="    line-height: 3.2em; margin-left: 3px;" class="id-text">PROFILE ID : {{i.user.id}}</p>
 
-				{% for i in male_profiles %}
+			</section>
+			
+			<div class="wrap">
+			<section class="dpsection">
+				<img class="dpimg" src="{{i.user.media.dp.url}}">
+				
+			</section>
+			<section class="texes">
+				<p style="font-size: 12px;" class="textname"><strong>Name:</strong>  {{i.user.first_name}} {{i.user.last_name}} </p>
+				<p style="font-size: 12px;" class="textname"><strong>Age/Height:</strong>  {{i.age}}/{{i.height}} </p>
+				<p style="font-size: 12px;" class="textname"><strong>Qualification:</strong>  {{i.Qualification}} </p>
+				<p style="font-size: 12px;" class="textname"><strong>Work:</strong>  {{i.work}} </p>
+				<a href="/show_profile/{{i.user.id}}"><button class="btnconnect"> View Profile</button></a>
+				
+			</section>
+		</div>
 
+		<section class="abt">
+			<p class="abtp" style="font-size: 12px; font-family: inherit;">{{i.about_me}}</p>
+		</section>
+		</div>
+	</div>
 
-				<div class="col-md-6 one-w3-profile">
-					<div class="profile-details">
-						<h5>Profile ID : {{i.user.id}}</h5>
-						<img src="{{i.user.media.dp.url}}" class="prf-img img-responsive"
-							alt="profile image" />
-						<div class="w3-prfr">
-							<p><strong>{{i.user.first_name}} {{i.user.last_name}}</strong>
-								{{i.age}} Years, {{i.height}} , {{i.color}}, {{i.Qualification}},
-								{{i.work}}, {{i.experience}}, Rs. {{i.income}} </p>
-							<h4>Contact Now:</h4>
-							<a href="#" data-toggle="modal"
-								data-target="#myModal">Login</a><span>or</span><a href="/">Register</a>
+	{% endfor %}
+</grid>
 
-						</div>
-						<div class="clearfix"></div>
-						<p class="light">{{i.about_me}}... <a href="/view_profile">read more</a></p>
-					</div>
-				</div>
+<style>
+	grid{
+		display: grid;
+		grid-template-columns: auto auto;
+		-ms-grid-column-span: 2;
+		grid-row-gap: 10px;
+	}
+	@media (max-width: 1200px){
+		grid{
+		grid-template-columns: auto ;
 
-				{% endfor %}
-
-				<div class="clearfix"></div>
-			</div>
+		}
+	}
+</style>
 
 
 
 			
 		</div>
-		<div role="tabpanel" class="tab-pane fade" id="male">Videos WP_Query goes here.</div>
-		<div role="tabpanel" class="tab-pane fade" id="female">Events WP_Query goes here.</div>
+		<div role="tabpanel" class="tab-pane fade" id="male">
+			<grid style="margin-top: 5px;">
+	
+				{% for i in male_profiles  %}
+					
+				
+					
+				<div class="col">
+					<div class="maindiv">
+						<section class="idsection">
+							<p style="    line-height: 3.2em; margin-left: 3px;" class="id-text">PROFILE ID : {{i.user.id}}</p>
+			
+						</section>
+						
+						<div class="wrap">
+						<section class="dpsection">
+							<img class="dpimg" src="{{i.user.media.dp.url}}">
+							
+						</section>
+						<section class="texes">
+							<p style="font-size: 12px;" class="textname"><strong>Name:</strong>  {{i.user.first_name}} {{i.user.last_name}} </p>
+							<p style="font-size: 12px;" class="textname"><strong>Age/Height:</strong>  {{i.age}}/{{i.height}} </p>
+							<p style="font-size: 12px;" class="textname"><strong>Qualification:</strong>  {{i.Qualification}} </p>
+							<p style="font-size: 12px;" class="textname"><strong>Work:</strong>  {{i.work}} </p>
+							<a href="/show_profile/{{i.user.id}}"><button class="btnconnect"> View Profile</button></a>
+							
+						</section>
+					</div>
+			
+					<section class="abt">
+						<p class="abtp" style="font-size: 12px; font-family: inherit;">{{i.about_me}}</p>
+					</section>
+					</div>
+				</div>
+			
+				{% endfor %}
+			</grid>
+			
+			<style>
+				grid{
+					display: grid;
+					grid-template-columns: auto auto;
+					-ms-grid-column-span: 2;
+					grid-row-gap: 10px;
+				}
+				@media (max-width: 1200px){
+					grid{
+					grid-template-columns: auto ;
+			
+					}
+				}
+			</style>
+			
+			
+		</div>
+		<div role="tabpanel" class="tab-pane fade" id="female">
+			<grid style="margin-top: 5px;">
+	
+				{% for i in female_profiles  %}
+					
+				
+					
+				<div class="col">
+					<div class="maindiv">
+						<section class="idsection">
+							<p style="    line-height: 3.2em; margin-left: 3px;" class="id-text">PROFILE ID : {{i.user.id}}</p>
+			
+						</section>
+						
+						<div class="wrap">
+						<section class="dpsection">
+							<img class="dpimg" src="{{i.user.media.dp.url}}">
+							
+						</section>
+						<section class="texes">
+							<p style="font-size: 12px;" class="textname"><strong>Name:</strong>  {{i.user.first_name}} {{i.user.last_name}} </p>
+							<p style="font-size: 12px;" class="textname"><strong>Age/Height:</strong>  {{i.age}}/{{i.height}} </p>
+							<p style="font-size: 12px;" class="textname"><strong>Qualification:</strong>  {{i.Qualification}} </p>
+							<p style="font-size: 12px;" class="textname"><strong>Work:</strong>  {{i.work}} </p>
+							<a href="/show_profile/{{i.user.id}}"><button class="btnconnect"> View Profile</button></a>
+							
+						</section>
+					</div>
+			
+					<section class="abt">
+						<p class="abtp" style="font-size: 12px; font-family: inherit;">{{i.about_me}}</p>
+					</section>
+					</div>
+				</div>
+			
+				{% endfor %}
+			</grid>
+			
+			<style>
+				grid{
+					display: grid;
+					grid-template-columns: auto auto;
+					-ms-grid-column-span: 2;
+					grid-row-gap: 10px;
+				}
+				@media (max-width: 1200px){
+					grid{
+					grid-template-columns: auto ;
+			
+					}
+				}
+			</style>
+			
+			
+
+		</div>
 	</div>
 </div>
 			</div>
-			<div class="col-md-2">
-				filter
+			<div class="col-md-2 filter">
+				<h4 >Filter By</h4>
+				<div class="gridf">
+					<button class="btn btn-success" style="border-radius: 0px;">filter1</button>
+					<button class="btn btn-success" style="border-radius: 0px;">filter2</button>
+					<button class="btn btn-success" style="border-radius: 0px;">filter3</button>
+					<button class="btn btn-success" style="border-radius: 0px;">filter4</button>
+					<button class="btn btn-success" style="border-radius: 0px;">filter5</button>
+					<button class="btn btn-success" style="border-radius: 0px;">filter6</button>
+					<button class="btn btn-success" style="border-radius: 0px;">filter7</button>
+					<button class="btn btn-success" style="border-radius: 0px;">filter8</button>
+					<button class="btn btn-success" style="border-radius: 0px;">filter9</button>
+					<button class="btn btn-success" style="border-radius: 0px;">filter10</button>
+					
+				</div>
+
+				<h4 style="margin-top: 30px;">Sort By By</h4>
+				<div class="gridf">
+					<button class="btn btn-success" style="border-radius: 0px;">filter1</button>
+					<button class="btn btn-success" style="border-radius: 0px;">filter2</button>
+					<button class="btn btn-success" style="border-radius: 0px;">filter3</button>
+					<button class="btn btn-success" style="border-radius: 0px;">filter4</button>
+					<button class="btn btn-success" style="border-radius: 0px;">filter5</button>
+					<button class="btn btn-success" style="border-radius: 0px;">filter6</button>
+					<button class="btn btn-success" style="border-radius: 0px;">filter7</button>
+					<button class="btn btn-success" style="border-radius: 0px;">filter8</button>
+					<button class="btn btn-success" style="border-radius: 0px;">filter9</button>
+					<button class="btn btn-success" style="border-radius: 0px;">filter10</button>
+					
+				</div>
+
+
+				<style>
+					.gridf{
+						display: grid;
+						grid-template-columns: auto auto;
+						margin-top: 10px;
+						grid-column-gap:5px;
+						grid-row-gap:5px;
+					}
+					.filter{
+						margin-top: 35px;
+					}
+				</style>
+				
 			</div>
 		</div>
 	</div>
@@ -89,361 +271,123 @@
 <style>
 	.nav-pills > li > a {
     border-radius: 0px;
+
+}
+.maindiv{
+width: 390px;
+height: 300px;
+background: #fff;
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.idsection{
+	width: 390px;
+	height: 43px;
+	background-color: red;
+}
+.id-text{
+	color: #FFF;
+font-family: inherit;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+text-transform: uppercase;
+}
+.dpimg{
+width: 161px;
+height: 196px;
+background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+
+}
+.textname{
+	color: #000;
+text-align: justify;
+font-family: inherit;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+text-transform: capitalize;
+}
+.wrap{
+	display: flex;
+}
+.texes{
+	margin: 27px;
+	align-content: center;
+    /* display: grid;
+	row-gap: 1px; */
+}
+.btnconnect{
+width: 161px;
+height: 35px;
+border: 1px solid #000;
+background: #FFF;
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+color: #000;
+
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+text-transform: capitalize;
+
+
+}
+.abtp{
+	width: 350px;
+height: 50px;
+color: #000;
+text-align: justify;
+font-family: inherit;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+text-transform: capitalize;
+align-content: center;
+    display: grid;
+	margin: 5px;
+}
+
+@media (max-width: 1200px){
+	.maindiv{
+width: 100%;
+height: auto;
+/* margin-left: -30px; */
+
+}
+.idsection{
+	width: 100%;
+	height: auto;
+	background-color: red;
+}
+.abtp{
+	width: 95%;
+	height: auto;
+	font-size: 6px;
+}
+.texes{
+	margin: 10px;
+	align-content: center;
+    /* display: grid;
+	row-gap: 1px; */
+	font-size: 10px;
+}
+.dpimg{
+	width: 100%;
+	max-height: 150px;
+}
 }
 </style>
 
-
-
-<!-- All Profiles -->
-<div class="w3ls-list">
-	<div class="w3layouts_all-profiles">
-		<div class="container">
-			<h3 class="w3_special">Total Matrimonial Profiles list</h3>
-			<div class="col-md-9 profiles-list-agileits">
-				<!--Horizontal Tab-->
-				<div id="parentHorizontalTab">
-					<ul class="resp-tabs-list hor_1">
-						<li>Male</li>
-						<li>Female</li>
-					</ul>
-					<div class="resp-tabs-container hor_1">
-						<div>
-							<div class="match-profile">
-
-								{% for i in male_profiles %}
-
-
-								<div class="col-md-6 one-w3-profile">
-									<div class="profile-details">
-										<h5>Profile ID : {{i.user.id}}</h5>
-										<img src="{{i.user.media.dp.url}}" class="prf-img img-responsive"
-											alt="profile image" />
-										<div class="w3-prfr">
-											<p><strong>{{i.user.first_name}} {{i.user.last_name}}</strong>
-												{{i.age}} Years, {{i.height}} , {{i.color}}, {{i.Qualification}},
-												{{i.work}}, {{i.experience}}, Rs. {{i.income}} </p>
-											<h4>Contact Now:</h4>
-											<a href="#" data-toggle="modal"
-												data-target="#myModal">Login</a><span>or</span><a href="/">Register</a>
-
-										</div>
-										<div class="clearfix"></div>
-										<p class="light">{{i.about_me}}... <a href="/view_profile">read more</a></p>
-									</div>
-								</div>
-
-								{% endfor %}
-
-								<div class="clearfix"></div>
-							</div>
-						</div>
-						<div>
-							<div class="match-profile">
-								{% for i in male_profiles %}
-
-
-								<div class="col-md-6 one-w3-profile">
-									<div class="profile-details">
-										<h5>Profile ID : {{i.user.id}}</h5>
-										<img src="{{i.user.media.dp.url}}" class="prf-img img-responsive"
-											alt="profile image" />
-										<div class="w3-prfr">
-											<p><strong>{{i.user.first_name}} {{i.user.last_name}}</strong>
-												{{i.age}} Years, {{i.height}} , {{i.color}}, {{i.Qualification}},
-												{{i.work}}, {{i.experience}}, Rs. {{i.income}} </p>
-											<h4>Contact Now:</h4>
-											<a href="#" data-toggle="modal"
-												data-target="#myModal">Login</a><span>or</span><a href="/">Register</a>
-
-										</div>
-										<div class="clearfix"></div>
-										<p class="light">{{i.about_me}}... <a href="/view_profile">read more</a></p>
-									</div>
-								</div>
-
-								{% endfor %}
-
-
-								<div class="clearfix"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 w3ls-aside">
-				<h4>Filter Profiles by</h4>
-				<div class="fltr-w3ls">
-					<h5>Country</h5>
-					<ul>
-						<li><a href="#">Country1</a></li>
-						<li><a href="#">Country2</a></li>
-						<li><a href="#">Country3</a></li>
-						<li><a href="#">Country4</a></li>
-						<li><a href="#">Country5</a></li>
-						<li><a href="#">Country6</a></li>
-						<li><a href="#">Country7</a></li>
-						<li><a href="#">Country8</a></li>
-					</ul>
-				</div>
-				<div class="fltr-w3ls">
-					<h5>Religion</h5>
-					<ul>
-						<li><a href="#">Religion1</a></li>
-						<li><a href="#">Religion2</a></li>
-						<li><a href="#">Religion3</a></li>
-						<li><a href="#">Religion4</a></li>
-						<li><a href="#">Religion5</a></li>
-						<li><a href="#">Religion6</a></li>
-						<li><a href="#">Religion7</a></li>
-					</ul>
-				</div>
-				<div class="fltr-w3ls">
-					<h5>Profession</h5>
-					<ul>
-						<li><a href="#">Profession1</a></li>
-						<li><a href="#">Profession2</a></li>
-						<li><a href="#">Profession3</a></li>
-						<li><a href="#">Profession4</a></li>
-						<li><a href="#">Profession5</a></li>
-						<li><a href="#">Profession6</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="clearfix"></div>
-		</div>
-	</div>
-	<!-- Modal -->
-	<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
-		<div class="modal-dialog">
-
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Login to Continue</h4>
-				</div>
-				<div class="modal-body">
-					<div class="login-w3ls">
-						<form id="signin" action="/login" method="post">
-							<label>User Name </label>
-							<input type="text" name="uname" placeholder="Username" required="">
-							<label>Password</label>
-							<input type="password" name="pwd" placeholder="Password" required="">
-							<div class="w3ls-loginr">
-								<input type="checkbox" id="brand" name="checkbox" value="">
-								<span> Remember me ?</span>
-								<a href="#">Forgot password ?</a>
-							</div>
-							{% csrf_token %}
-							<div class="clearfix"> </div>
-							<input type="submit" name="submit" value="Login">
-							<div class="clearfix"> </div>
-							<div class="social-icons">
-
-								<div class="clearfix"> </div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</div>
-	<!-- //Modal -->
-</div>
-{% load static %}
-<script src="{% static 'js/easyResponsiveTabs.js' %}"></script>
-<script type="text/javascript">
-	$(document).ready(function () {
-
-		$('#parentHorizontalTab').easyResponsiveTabs({
-			type: 'default', //Types: default, vertical, accordion
-			width: 'auto', //auto or any width like 600px
-			fit: true, // 100% fit in a container
-			closed: 'accordion', // Start closed if in accordion view
-			tabidentify: 'hor_1', // The tab groups identifier
-			activate: function (event) { // Callback function if tab is switched
-				var $tab = $(this);
-				var $info = $('#nested-tabInfo');
-				var $name = $('span', $info);
-
-				$name.text($tab.text());
-
-				$info.show();
-			}
-		});
-
-	});
-</script>
-<!-- //All Profiles -->
-
-<!-- browse profiles -->
-<div class="w3layouts-browse text-center">
-	<div class="container">
-		<h3>Browse Matchmaking Profiles by</h3>
-		<div class="col-md-4 w3-browse-grid">
-			<h4>By Country</h4>
-			<ul>
-				<li><a href="nri_list.html">Country 1</a></li>
-				<li><a href="nri_list.html">Country 2</a></li>
-				<li><a href="nri_list.html">Country 3</a></li>
-				<li><a href="nri_list.html">Country 4</a></li>
-				<li><a href="nri_list.html">Country 5</a></li>
-				<li><a href="nri_list.html">Country 6</a></li>
-				<li><a href="nri_list.html">Country 7</a></li>
-				<li><a href="nri_list.html">Country 8</a></li>
-				<li><a href="nri_list.html">Country 9</a></li>
-				<li><a href="nri_list.html">Country 10</a></li>
-				<li><a href="nri_list.html">Country 11</a></li>
-				<li class="more"><a href="nri_list.html">more..</a></li>
-			</ul>
-		</div>
-		<div class="col-md-4 w3-browse-grid">
-			<h4>By Religion</h4>
-			<ul>
-				<li><a href="r_list.html">Religion 1</a></li>
-				<li><a href="r_list.html">Religion 2</a></li>
-				<li><a href="r_list.html">Religion 3</a></li>
-				<li><a href="r_list.html">Religion 4</a></li>
-				<li><a href="r_list.html">Religion 5</a></li>
-				<li><a href="r_list.html">Religion 6</a></li>
-				<li><a href="r_list.html">Religion 7</a></li>
-				<li><a href="r_list.html">Religion 8</a></li>
-				<li><a href="r_list.html">Religion 9</a></li>
-				<li><a href="r_list.html">Religion 10</a></li>
-				<li><a href="r_list.html">Religion 11</a></li>
-				<li class="more"><a href="r_list.html">more..</a></li>
-			</ul>
-		</div>
-		<div class="col-md-4 w3-browse-grid">
-			<h4>By Community</h4>
-			<ul>
-				<li><a href="r_list.html">Community 1</a></li>
-				<li><a href="r_list.html">Community 2</a></li>
-				<li><a href="r_list.html">Community 3</a></li>
-				<li><a href="r_list.html">Community 4</a></li>
-				<li><a href="r_list.html">Community 5</a></li>
-				<li><a href="r_list.html">Community 6</a></li>
-				<li><a href="r_list.html">Community 7</a></li>
-				<li><a href="r_list.html">Community 8</a></li>
-				<li><a href="r_list.html">Community 9</a></li>
-				<li class="more"><a href="r_list.html">more..</a></li>
-			</ul>
-		</div>
-		<div class="clearfix"></div>
-	</div>
-</div>
-<!-- //browse profiles -->
-
-<!-- Get started -->
-<div class="w3layous-story text-center">
-	<div class="container">
-		<h4>Your story is waiting to happen! <a href="index.html">Get started</a></h4>
-	</div>
-</div>
-<!-- //Get started -->
-
-<!-- footer -->
-<footer>
-	<div class="footer">
-		<div class="container">
-			<div class="footer-info w3-agileits-info">
-				<div class="col-md-4 address-left agileinfo">
-					<div class="footer-logo header-logo">
-						<h6>Get in Touch.</h6>
-					</div>
-					<ul>
-						<li><i class="fa fa-map-marker"></i> 123 San Sebastian, New York City USA.</li>
-						<li><i class="fa fa-mobile"></i> 333 222 3333 </li>
-						<li><i class="fa fa-phone"></i> +222 11 4444 </li>
-						<li><i class="fa fa-envelope-o"></i> <a href="mailto:example@mail.com"> mail@example.com</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-md-8 address-right">
-					<div class="col-md-4 footer-grids">
-						<h3>Company</h3>
-						<ul>
-							<li><a href="about.html">About Us</a></li>
-							<li><a href="feedback.html">Feedback</a></li>
-							<li><a href="help.html">Help</a></li>
-							<li><a href="tips.html">Safety Tips</a></li>
-							<li><a href="typo.html">Typography</a></li>
-							<li><a href="icons.html">Icons Page</a></li>
-						</ul>
-					</div>
-					<div class="col-md-4 footer-grids">
-						<h3>Quick links</h3>
-						<ul>
-							<li><a href="terms.html">Terms of use</a></li>
-							<li><a href="privacy_policy.html">Privacy Policy</a></li>
-							<li><a href="contact.html">Contact Us</a></li>
-							<li><a href="faq.html">FAQ</a></li>
-							<li><a href="sitemap.html">Sitemap</a></li>
-						</ul>
-					</div>
-					<div class="col-md-4 footer-grids">
-						<h3>Follow Us on</h3>
-						<section class="social">
-							<ul>
-								<li><a class="icon fb" href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a class="icon tw" href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a class="icon gp" href="#"><i class="fa fa-google-plus"></i></a></li>
-							</ul>
-						</section>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-	</div>
-	<div class="copy-right">
-		<div class="container">
-			<p>© 2017 Match. All rights reserved | Design by <a href="http://w3layouts.com"> W3layouts.</a></p>
-		</div>
-	</div>
-</footer>
-<!-- //footer -->
-<!-- menu js aim -->
-<script src="{% static 'js/jquery.menu-aim.js' %}"> </script>
-<script src="{% static 'js/main.js' %}"></script> <!-- Resource jQuery -->
-<!-- //menu js aim -->
-<!-- for bootstrap working -->
-<script src="{% static 'js/bootstrap.js' %}"></script>
-<!-- //for bootstrap working -->
-<script type="text/javascript">
-	$(document).ready(function () {
-		/*
-		var defaults = {
-				containerID: 'toTop', // fading element id
-			containerHoverID: 'toTopHover', // fading element hover id
-			scrollSpeed: 1200,
-			easingType: 'linear' 
-			};
-		*/
-
-		$().UItoTop({ easingType: 'easeOutQuart' });
-
-	});
-</script>
-<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-<!-- for smooth scrolling -->
-<script type="text/javascript" src="{% static 'js/move-top.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/easing.js' %}"></script>
-<script type="text/javascript">
-	jQuery(document).ready(function ($) {
-		$(".scroll").click(function (event) {
-			event.preventDefault();
-			$('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
-		});
-	});
-</script>
-<!-- //for smooth scrolling -->
-</body>
-<!-- //body -->
-
-</html>
-<!-- //html -->
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 {% endblock main %}

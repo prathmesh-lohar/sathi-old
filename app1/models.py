@@ -24,6 +24,8 @@ class profile(models.Model):
     is_featured = models.BooleanField(default=False)
     is_verified = models.BooleanField(default=False)
 
+    is_mail_verified = models.BooleanField(default=False)
+
 
     def __str__(self):
         return str(self.user)
