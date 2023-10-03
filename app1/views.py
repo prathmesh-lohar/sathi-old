@@ -27,14 +27,14 @@ def home(request):
                         'featured2':featured2,
                     }
 
-                return render(request, "index.html",data)
+                return render(request, "theme/index.html",data)
         
     data={
           'featured1':featured1,
           'featured2':featured2,
         }
 
-    return render(request, "index.html",data)
+    return render(request, "theme/index.html",data)
 
 def login(request):
     
